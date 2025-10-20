@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="card">
+    <div class="header">
+      <h1 class="title">Student Feedback System</h1>
+      <p class="subtitle">We value your feedback and opinions</p>
+    </div>
+    
+    <div class="content">
+      <div class="welcome-section">
+        <h2 class="greeting">Welcome! <span class="name-display">{{name || 'Guest'}}</span></h2>
+      </div>
+      
+      <div class="form-group">
+        <label for="name" class="label">Enter your name to get started</label>
+        <input 
+          type="text" 
+          id="name"
+          [(ngModel)]="name" 
+          placeholder="Your name" 
+          class="input"
+        >
+      </div>
+      
+      <button 
+        (click)="navigateToFeedback()" 
+        class="btn btn-primary"
+        [disabled]="!name.trim()"
+      >
+        Continue to Feedback
+        <span class="arrow">→</span>
+      </button>
+    </div>
+  </div>
+</div>

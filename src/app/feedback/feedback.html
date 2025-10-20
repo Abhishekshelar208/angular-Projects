@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="card">
+    <div class="header">
+      <h1 class="title">Feedback Form</h1>
+      <p class="subtitle">Share your thoughts with us</p>
+    </div>
+    
+    <div class="content">
+      <div class="greeting-section">
+        <h2 class="greeting">Hey, <span class="username">{{userName()}}</span>! 👋</h2>
+        <p class="description">We'd love to hear your feedback</p>
+      </div>
+      
+      <div class="form-group">
+        <label for="message" class="label">Your Message</label>
+        <textarea 
+          name="message" 
+          [(ngModel)]="message" 
+          id="message" 
+          rows="6"
+          placeholder="Share your thoughts, suggestions, or concerns..."
+          class="textarea"
+        ></textarea>
+      </div>
+      
+      <button 
+        (click)="showMessage()" 
+        class="btn btn-primary"
+        [disabled]="!message.trim()"
+      >
+        Submit Feedback
+        <span class="icon">✓</span>
+      </button>
+      
+      @if(showMessageBox){
+        <div class="success-message">
+          <div class="success-icon">✓</div>
+          <h3 class="success-title">Thank you for your feedback!</h3>
+          <div class="message-preview">
+            <p class="message-label">Your message:</p>
+            <p class="message-text">{{message}}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
